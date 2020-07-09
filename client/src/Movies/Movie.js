@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Movie = (props) => {
+const Movie = ({ match, addToSavedList, savedList }) => {
+  
+  
   const [movie, setMovie] = useState();
+
+
+  
+  function saveMovie(movie) {
+    
+    const newMovieSaved =  movie.title
+    
+    // setSavedList('test')
+  }
  
   useEffect(() => {
     const id = 1;
@@ -10,7 +21,7 @@ const Movie = (props) => {
     // You will NEED to add a dependency array to this effect hook
 
        axios
-        .get(`http://localhost:5000/api/movies/${id}`)
+        .get(`http://localhost:5000/api/movies/${match.params.id}`)
         .then(response => {
           setMovie(response.data);
         })
@@ -49,7 +60,8 @@ const Movie = (props) => {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <button onClick={() => addToSavedList(title)} className="save-button"> Save</button>
+     
     </div>
   );
 }
