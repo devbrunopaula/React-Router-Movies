@@ -3,7 +3,7 @@ import plexBG from '../../assets/plexBG.jpg'
 import { Container } from '../../styles/styles'
 
 // Icons
-import { Play } from '../../styles/icons'
+import { AddToQueue  } from '../../styles/icons'
 import { Heart } from '../../styles/icons'
 import { SolidHeart } from '../../styles/icons'
 import { ArrowGoBack } from '../../styles/icons'
@@ -50,10 +50,10 @@ const iconCSS = css`
     cursor:pointer;
     fill: var(--grayFont);
     margin-left: 2rem;
-    margin-right: 2rem;
+    //margin-right: 2rem;
 `
 
-export const PlayIcon = styled(Play)`
+export const PlayIcon = styled(AddToQueue )`
   ${iconCSS}
   
 `;
@@ -74,26 +74,27 @@ export const GoBackIcon = styled(ArrowGoBack)`
 `;
 
 export const ContentWrapper = styled.div`
-border: solid yellow;
+
   display: flex;
-  margin-top: 8rem;
+  margin-top: 2rem;
 `;
 
 export const PosterSideBar = styled.div`
-  border: solid green;
+  
   flex:1;
 `;
 
 export const Poster = styled.img`
-  border: solid green;
+  
   width: 350px;
   height: 500px;
   margin: 0 auto;
+  box-shadow: 10px  -10px 10px 2px  rgba(0,0,0,0.4);
   
 `;
 
 export const MovieInfo = styled.div`
-  border: solid blue;
+  
   flex: 2;
 `;
 
@@ -103,22 +104,112 @@ export const MovieInfoHeader = styled.div`
   align-items: center;
 `;
 
+const spanTitle = css`
+color: var(--darkGray);
+padding-right: .5rem;
+`
+
 export const Title = styled.p`
+  color: var(--grayFont);
+  font-size: 2rem;
+  font-weight: bold;
+  /* padding: 0 0 1rem 0; */
   
+  span {
+      ${spanTitle}
+  }
 `;
 
 export const Year = styled.p`
-  
+  color: var(--grayFont);
+  font-weight: bold;
+  font-size: 1.5rem;
+  /* padding: .3rem 0; */
 `;
 export const Runtine = styled.p`
-  
+  color: var(--darkGray);
+  font-size: 1rem;
+  padding: .3rem 0;
 `;
 export const Rated = styled.p`
-  
+  background: var(--grayFont);
+  text-align: center;
+  width: 5rem;
+  color: var( --line);
+  border-radius: 1rem;
+  padding: .2rem 0;
 `;
 export const Ratings = styled.p`
-  
+  color: var(--grayFont);
 `;
 export const Genre = styled.p`
-  
+  color: var(--grayFont);
+`;
+
+export const Line = styled.hr`
+  color: var( --line);
+  margin: 1rem 0;
+  box-shadow: 10px  -10px 5px 2px  rgba(0,0,0,0.2);
+`;
+
+export const MainInfo = styled.div`
+  padding: 1rem 0 ;
+
+  span{
+    ${spanTitle}
+  }
+`;
+
+const infoCss = css`
+/* font-size: 1.3rem; */
+  color: var(--grayFont);
+  padding: .3rem 0;
+`
+
+export const DirectedBy = styled.p`
+${infoCss}
+`;
+
+export const WrittenBy = styled.p`
+  ${infoCss}
+`;
+
+export const Language = styled.p`
+  ${infoCss}
+`;
+
+export const Country = styled.p`
+  ${infoCss}
+`;
+
+export const Awards = styled.p`
+  ${infoCss}
+`;
+
+export const Description = styled.p`
+  padding-top: 4rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--grayFont);
+`;
+
+export const Button = styled.button`
+  color: var(--grayFont);
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid var(--darkGray);
+  border-radius: 3px;
+  background: transparent;
+  float: right;
+  cursor: pointer;
+  &:hover {
+    background: var(--darkGray);
+    color: var(--Line)
+  }
+`;
+
+export const FavList = styled.li`
+  font-size: 1.2rem;
+  padding-left: 1rem;
 `;

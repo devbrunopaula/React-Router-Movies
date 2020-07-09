@@ -6,10 +6,14 @@ import { Loading, Loader, PleaseWait } from './styles'
 import { useParams } from 'react-router-dom'
 import Popcorn from '../../assets/popcorn.gif'
 import waiting from '../../assets/loading.gif'
-function MovieDetails() {
+
+
+
+function MovieDetails({favorites, setFavorites}) {
 
     const [ movieData, setMovieData ] = useState([])
-    const [ loading, setLoading ] = useState(false)
+    const [loading, setLoading] = useState(false)
+    
 
     const key = process.env.REACT_APP_KEY
     const {movie} = useParams()
@@ -20,6 +24,7 @@ function MovieDetails() {
             const response = await axios.get(`http://www.omdbapi.com/?t=${movie}&plot=full?&apikey=${key}`)
             
             setMovieData(response.data)
+            
             setLoading(false)
         } catch (error) {
             setLoading(true)
@@ -27,13 +32,18 @@ function MovieDetails() {
         }
         
     }
+
+   
+
     useEffect(() => {
-       getMovies()
+        getMovies()
+       
     },[])
 
+    
     return (
         <>
-            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card data={movieData}/>}
+            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card data={movieData} favorites={favorites} setFavorites={setFavorites}/>}
         </>
     )
         

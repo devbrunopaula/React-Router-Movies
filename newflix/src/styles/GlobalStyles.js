@@ -13,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
     --outline: #22222;
     --background: #22222;
     --grayFont: #C3C6C8;
+    --darkGray: #908F8D;
+    --line: #313335;
 }
 
 html, body, :root {
