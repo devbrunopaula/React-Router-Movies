@@ -13,7 +13,7 @@ const Routes = () => {
         <Switch>
             <Route path="/favorites" component={Favorites} />
              {/* <Route path="/movie/:movie" component={MovieDetails} />   */}
-            <Route path="/movie/:movie" render={() => <MovieDetails setFavorites={setFavorites} favorites={favorites}/>}  />  
+             <Route path="/movie/:movie" render={() => <MovieDetails setFavorites={setFavorites} favorites={favorites}/>}  />  
              <Route path="/movies" component={MovieDetails} />  
             <Route path="/" component={Layout}/>  
         </Switch>

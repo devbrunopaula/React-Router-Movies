@@ -21,12 +21,6 @@ html, body, :root {
     font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
    
 }
-
-
-
-
-
-
  
 `
 

@@ -6,6 +6,7 @@ import { Loading, Loader, PleaseWait } from './styles'
 import { useParams } from 'react-router-dom'
 import Popcorn from '../../assets/popcorn.gif'
 import waiting from '../../assets/loading.gif'
+import { Movie } from 'styled-icons/boxicons-regular'
 
 
 
@@ -16,12 +17,14 @@ function MovieDetails({favorites, setFavorites}) {
     
 
     const key = process.env.REACT_APP_KEY
-    const {movie} = useParams()
-
+    const { movie } = useParams()
+    const [currentMovie, setCurrentMovie] = useState(movie)
+    console.log(currentMovie)
+    
     const getMovies = async () =>{
             setLoading(true)
         try {
-            const response = await axios.get(`http://www.omdbapi.com/?t=${movie}&plot=full?&apikey=${key}`)
+            const response = await axios.get(`http://www.omdbapi.com/?t=${currentMovie}&plot=full?&apikey=${key}`)
             
             setMovieData(response.data)
             
@@ -36,14 +39,15 @@ function MovieDetails({favorites, setFavorites}) {
    
 
     useEffect(() => {
+        
         getMovies()
        
-    },[favorites])
+    }, [currentMovie])
 
     
     return (
         <>
-            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card data={movieData} favorites={favorites} setFavorites={setFavorites} getMovies={getMovies}/>}
+            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card setCurrentMovie={setCurrentMovie} data={movieData} favorites={favorites} setFavorites={setFavorites} getMovies={getMovies}/>}
         </>
     )
         

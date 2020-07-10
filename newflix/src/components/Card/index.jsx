@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Modal, Alert } from 'react-bootstrap';
-import { Route, NavLink, useHistory, Link} from 'react-router-dom'
+import { Route, Link, NavLink, useLocation} from 'react-router-dom'
 
 import {
     MovieWrapper,
@@ -9,7 +9,7 @@ import {
     HeaderTitle,
     PlayIcon,
     HeartIcon,
-    HeartSolidIcon,
+    // HeartSolidIcon,
     GoBackIcon,
     ContentWrapper,
     PosterSideBar,
@@ -31,14 +31,14 @@ import {
     Awards, 
     Description,
     Button,
-    FavList
+   
     } from './styles'
 
-function Card({data, favorites, setFavorites,getMovies}) {
-    const [heartState, setHeartState] = useState(true)
+function Card({data, favorites, setFavorites, getMovies, setCurrentMovie}) {
+    // const [heartState, setHeartState] = useState(true)
     const [show, setShow] = useState(false);
-   
-    const history = useHistory()
+    const [showAlert, setShowAlert ] = useState(false)
+
    
     //Modal Handle
     const handleClose = () => setShow(false);
@@ -57,31 +57,56 @@ function Card({data, favorites, setFavorites,getMovies}) {
 
     }   
 
-    function saved() {
-       setFavorites([...favorites, data.Title])
+    function AlertMessage(color) {
+        setShowAlert(true)
+        
         
     }
 
-    function Move(i) {
-       return <NavLink  key={i} to={`/movie/${favorites[i]}`}>test</NavLink>
+    const heartClicked = () => {
+        
+        const n = favorites.includes(data.Title)
+        if(!n) {
+            console.log('no')
+            console.log('Fav if', favorites)
+            setFavorites([...favorites, data.Title])
+        } else {
+            AlertMessage('danger')
+        }
     }
+//saved()
+    
+    const location = useLocation
+   
+    const test = (e) => {
+      const currentMovie = e.target.innerHTML
+      setCurrentMovie(currentMovie)
+        
+          
+    }
+    
+
+    
 
     
     return (
         <>
     <MovieWrapper >
         <WrapperContainer>
-                <MoviesHeader>
-                    <HeaderTitle>{data.Title}</HeaderTitle>
+                    <MoviesHeader>
+                        
+                        <HeaderTitle>{data.Title}</HeaderTitle>
+                        
                     <div>
                         <PlayIcon onClick={favModal}/>
-                        <HeartIcon onClick={saved}/>
+                        <HeartIcon onClick={heartClicked}/>
                         
                          <NavLink to="/"> <GoBackIcon/> </NavLink>
                     </div>
              </MoviesHeader>
                 <ContentWrapper>
-                    <PosterSideBar>
+                        <PosterSideBar>
+                        
                         <Poster src={data.Poster}/>
                     </PosterSideBar>
             
@@ -93,7 +118,8 @@ function Card({data, favorites, setFavorites,getMovies}) {
                                 <Runtine>{data.Runtime}</Runtine>
                                 <Rated>{data.Rated}</Rated>
                             </div>
-                            <div style={{textAlign: 'right'}}> 
+                                <div style={{ textAlign: 'right' }}> 
+                                <Alert show={showAlert} onClose={() => setShowAlert(false)} transition variant="danger" dismissible>This Movie has been added already...</Alert>
                                 <Ratings><span>Ratings: </span>{data.imdbRating}</Ratings>
                                 <Genre><span>Genre: </span>{data.Genre}</Genre>
                             </div>
@@ -110,7 +136,7 @@ function Card({data, favorites, setFavorites,getMovies}) {
                         </MainInfo>    
                             <Button onClick={clickHandle}>Back</Button>
                             
-                            {favorites.map((el, i) => <span style={{padding: '0 .6rem'}}><NavLink  key={i} to={`/movie/${favorites[i]}`}>{el}</NavLink></span>)}
+                           
                           
                     </MovieInfo>  
                                 
@@ -125,9 +151,10 @@ function Card({data, favorites, setFavorites,getMovies}) {
           <Modal.Title>My Favorites</Modal.Title>
         </Modal.Header>
                 <Modal.Body>
-                   
-                {favorites.map((el, i) => <li><NavLink  key={i} to={`/movie/${favorites[i]}`}>{el}</NavLink></li>)}
-                    
+                <ul>
+                {favorites.map((el, i) => <li key={i}> <Link onClick={test}  to={`/movie/${favorites[i]}`}>{el}</Link></li>)}
+                {/* {favorites.map((el, i) => <li key={i}> <Link   to={`/movie/${favorites[i]}`}>{el}</Link></li>)} */}
+                </ul>
                     
                 </Modal.Body>
         <Modal.Footer>
