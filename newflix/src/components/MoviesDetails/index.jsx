@@ -38,12 +38,12 @@ function MovieDetails({favorites, setFavorites}) {
     useEffect(() => {
         getMovies()
        
-    },[])
+    },[favorites])
 
     
     return (
         <>
-            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card data={movieData} favorites={favorites} setFavorites={setFavorites}/>}
+            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card data={movieData} favorites={favorites} setFavorites={setFavorites} getMovies={getMovies}/>}
         </>
     )
         

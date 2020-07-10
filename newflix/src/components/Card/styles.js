@@ -71,6 +71,7 @@ export const HeartSolidIcon = styled(SolidHeart)`
 `;
 export const GoBackIcon = styled(ArrowGoBack)`
   ${iconCSS}
+  margin-right: 1rem;
 `;
 
 export const ContentWrapper = styled.div`
