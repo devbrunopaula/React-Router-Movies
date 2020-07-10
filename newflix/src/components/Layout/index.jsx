@@ -14,7 +14,7 @@ import {
 import logo from '../../assets/logo.png'
 // import Main from '../Main'
 
-function Layout() {
+function Layout({setCurrentMovie}) {
     const [movie, setMovies] = useState('')
     
 
@@ -29,7 +29,7 @@ function Layout() {
         if (e.key === 'Enter') {
             console.log(movie)
             const moviedSearched = e.target.value
-          return   <Route  path='/test' render={ () => <div>test</div>}  />
+         
             
         }
     }

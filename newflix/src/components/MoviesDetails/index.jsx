@@ -24,7 +24,7 @@ function MovieDetails({favorites, setFavorites}) {
     const getMovies = async () =>{
             setLoading(true)
         try {
-            const response = await axios.get(`http://www.omdbapi.com/?t=${currentMovie}&plot=full?&apikey='1245a4d4'`)
+            const response = await axios.get(`http://www.omdbapi.com/?t=${currentMovie}&plot=full?&apikey=1245a4d4`)
             
             setMovieData(response.data)
             
