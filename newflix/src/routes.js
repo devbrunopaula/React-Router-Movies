@@ -7,15 +7,18 @@ import Favorites from './components/Favorites'
 
 
 
-const Routes = () => {
-    const [ favorites, setFavorites ] = useState([])
+
+const Routes = ({ movieData, currentMovie, setCurrentMovie, loading }) => {
+ 
+
     return (
         <Switch>
-            <Route path="/favorites" component={Favorites} />
-             {/* <Route path="/movie/:movie" component={MovieDetails} />   */}
-             <Route path="/movie/:movie" render={() => <MovieDetails setFavorites={setFavorites} favorites={favorites}/>}  />  
-             <Route path="/movies" component={MovieDetails} />  
-            <Route path="/" component={Layout}/>  
+            <Route path="/favorite/:movie" component={Favorites}/>
+            <Route path="/favorites/" component={Favorites}/>
+            <Route path="/movie/:movie" component={MovieDetails}/>
+            <Route path="/movies" component={MovieDetails} />  
+            <Route path="/" component={Layout}/> 
+                
         </Switch>
     )
 }

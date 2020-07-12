@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, Route } from 'react-router-dom'
-
+import { useDispatch, useSelector } from 'react-redux'
 import { Container } from '../../styles/styles'
 import {
     ExtWrapper,
@@ -12,27 +12,36 @@ import {
     ArrowIcon
 } from './styles'
 import logo from '../../assets/logo.png'
-// import Main from '../Main'
+import { fetchMovies }  from '../../redux/actions'
 
-function Layout({setCurrentMovie}) {
+function Layout({setPressEnter, movieData, setCurrentMovie, currentMovie}) {
     const [movie, setMovies] = useState('')
     
+    console.log('Layout', currentMovie)
+    
+
+    // Redux
+
+    const movieRedux = useSelector( state => state.movies)
+    const dispatch = useDispatch()
 
     const handleChanges = (event) => {
-        const moviedSearched = event.target.value
-        setMovies(moviedSearched)
-        
+        const moviesSearched = event.target.value
+        setMovies(moviesSearched)
+    
     }
     
 
     const handleEnter = (e) => {
         if (e.key === 'Enter') {
-            console.log(movie)
-            const moviedSearched = e.target.value
-         
             
+            console.log('Enter Pressed')
+          return <Link to={`/movie/${movie}`} onClick={ () => dispatch(fetchMovies(movie))} />
         }
     }
+
+
+    
 
     return (
         <ExtWrapper >
@@ -47,8 +56,8 @@ function Layout({setCurrentMovie}) {
                         Movies, TV shows, and more.</h1>
                         <h5>Search the massive Bruflix database</h5>
                         <EmailInput onChange={ handleChanges } onKeyPress={ handleEnter } placeholder="Search a Movie" />
-                        <Link to={`/movie/${movie}`}>
-                            <SearchBtn>SEARCH <ArrowIcon /></SearchBtn>
+                        <Link to={`/movie/${movie}`} onClick={ () => dispatch(fetchMovies(movie))} >
+                            <SearchBtn >SEARCH <ArrowIcon /></SearchBtn>
                         </Link>
                         <p>Ready to Query? Enter a movie title to get all the details.</p>
                     </HeroContainer>

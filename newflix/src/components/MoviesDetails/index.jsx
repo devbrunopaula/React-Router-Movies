@@ -10,44 +10,44 @@ import { Movie } from 'styled-icons/boxicons-regular'
 
 
 
-function MovieDetails({favorites, setFavorites}) {
+function MovieDetails({movieData, loading,  favorites, setCurrentMovie,  setFavorites }) {
 
-    const [ movieData, setMovieData ] = useState([])
-    const [loading, setLoading] = useState(false)
+    // const [ movieData, setMovieData ] = useState([])
+    // const [loading, setLoading] = useState(false)
     
 
-    const key = process.env.REACT_APP_KEY
-    const { movie } = useParams()
-    const [currentMovie, setCurrentMovie] = useState(movie)
-    console.log(currentMovie)
+    // const key = process.env.REACT_APP_KEY
+    // const { movie } = useParams()
+    // const [currentMovie, setCurrentMovie] = useState(movie)
+    // setCurrentMovie(pressEnter)
     
-    const getMovies = async () =>{
-            setLoading(true)
-        try {
-            const response = await axios.get(`http://www.omdbapi.com/?t=${currentMovie}&plot=full?&apikey=1245a4d4`)
+    // const getMovies = async () =>{
+    //         setLoading(true)
+    //     try {
+    //         const response = await axios.get(`http://www.omdbapi.com/?t=${currentMovie}&plot=full?&apikey=1245a4d4`)
             
-            setMovieData(response.data)
+    //         setMovieData(response.data)
             
-            setLoading(false)
-        } catch (error) {
-            setLoading(true)
-            console.log(error)
-        }
+    //         setLoading(false)
+    //     } catch (error) {
+    //         setLoading(true)
+    //         console.log(error)
+    //     }
         
-    }
-
+    // }
+    // console.log('MovieDetails', pressEnter)
    
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        getMovies()
-       
-    }, [currentMovie])
+    //     getMovies()
+        
+    // }, [currentMovie])
 
     
     return (
         <>
-            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card setCurrentMovie={setCurrentMovie} data={movieData} favorites={favorites} setFavorites={setFavorites} getMovies={getMovies}/>}
+            {loading ? <Loading><Loader src={Popcorn} /> <PleaseWait src={waiting} /></Loading> : <Card setCurrentMovie={setCurrentMovie} data={movieData} favorites={favorites} setFavorites={setFavorites} />}
         </>
     )
         

@@ -85,7 +85,7 @@ export const PosterSideBar = styled.div`
   flex:1;
 `;
 
-export const Poster = styled.img`
+export const Poster1 = styled.img`
   
   width: 350px;
   height: 500px;
@@ -110,7 +110,7 @@ color: var(--darkGray);
 padding-right: .5rem;
 `
 
-export const Title = styled.p`
+export const Title1 = styled.p`
   color: var(--grayFont);
   font-size: 2rem;
   font-weight: bold;
@@ -121,18 +121,18 @@ export const Title = styled.p`
   }
 `;
 
-export const Year = styled.p`
+export const Year1 = styled.p`
   color: var(--grayFont);
   font-weight: bold;
   font-size: 1.5rem;
   /* padding: .3rem 0; */
 `;
-export const Runtine = styled.p`
+export const Runtine1 = styled.p`
   color: var(--darkGray);
   font-size: 1rem;
   padding: .3rem 0;
 `;
-export const Rated = styled.p`
+export const Rated1 = styled.p`
   background: var(--grayFont);
   text-align: center;
   width: 5rem;
@@ -140,10 +140,10 @@ export const Rated = styled.p`
   border-radius: 1rem;
   padding: .2rem 0;
 `;
-export const Ratings = styled.p`
+export const Ratings1 = styled.p`
   color: var(--grayFont);
 `;
-export const Genre = styled.p`
+export const Genre1 = styled.p`
   color: var(--grayFont);
 `;
 
@@ -175,15 +175,15 @@ export const WrittenBy = styled.p`
   ${infoCss}
 `;
 
-export const Language = styled.p`
+export const Language1 = styled.p`
   ${infoCss}
 `;
 
-export const Country = styled.p`
+export const Country1 = styled.p`
   ${infoCss}
 `;
 
-export const Awards = styled.p`
+export const Awards1 = styled.p`
   ${infoCss}
 `;
 
