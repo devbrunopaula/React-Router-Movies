@@ -9,6 +9,7 @@ export const ExtWrapper = styled.div`
     url(${moviesBG}) repeat;
   box-shadow: 4px 14px 19px -8px rgba(0, 0, 0, 0.79);
   min-height: 100vh;
+  overflow: hidden;
 `
 export const Header = styled.div`
   display: flex;

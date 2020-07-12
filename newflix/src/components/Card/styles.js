@@ -11,9 +11,10 @@ import { ArrowGoBack } from '../../styles/icons'
 export const MovieWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.55)),
     url(${plexBG}) no-repeat center center fixed;
-  /* background-size: cover; */
-  /* background-repeat: repeat; */
+  background-size: cover;
+  background-repeat: repeat;
   position: relative;
+
   min-height: 100vh;
 `
 
