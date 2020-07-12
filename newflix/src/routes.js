@@ -1,29 +1,25 @@
-import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom';
-
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 import Layout from './components/Layout'
-import MovieDetails from './components/MoviesDetails'
 import Favorites from './components/Favorites'
+import LoaderScreen from './components/Loader/Loader'
+import { useSelector } from 'react-redux'
+import Card from './components/Card'
 
+const Routes = () => {
+  const movie = useSelector((state) => state.movie)
 
-
-
-const Routes = ({ movieData, currentMovie, setCurrentMovie, loading }) => {
- 
-
-    return (
-        <Switch>
-            <Route path="/favorite/:movie" component={Favorites}/>
-            <Route path="/favorites/" component={Favorites}/>
-            <Route path="/movie/:movie" component={MovieDetails}/>
-            <Route path="/movies" component={MovieDetails} />  
-            <Route path="/" component={Layout}/> 
-                
-        </Switch>
-    )
+  return (
+    <>
+      {movie.loading ? <LoaderScreen /> : ''}
+      <Switch>
+        <Route path='/favorite/:movie' component={Favorites} />
+        <Route path='/favorites/' component={Favorites} />
+        <Route path='/movie/:movie' component={Card} />
+        <Route path='/' component={Layout} />
+      </Switch>
+    </>
+  )
 }
-    
-   
-
 
 export default Routes

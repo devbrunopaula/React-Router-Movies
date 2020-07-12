@@ -24,5 +24,4 @@ html, body, :root {
  
 `
 
-
 export default GlobalStyle
