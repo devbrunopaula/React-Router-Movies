@@ -85,90 +85,88 @@ function Card() {
   }
 
   return (
-    <>
-      <MovieWrapper>
-        <WrapperContainer>
-          <MoviesHeader>
-            <HeaderTitle>{Title}</HeaderTitle>
-            <div>
-              <Link to={`/favorites`}>
-                {' '}
-                <PlayIcon />
-              </Link>
-              <HeartIcon onClick={heartClicked} />
-              <NavLink to='/'>
-                {' '}
-                <GoBackIcon />{' '}
-              </NavLink>
-            </div>
-          </MoviesHeader>
-          <ContentWrapper>
-            <PosterSideBar>
-              <Poster1 src={Poster} />
-            </PosterSideBar>
+    <MovieWrapper>
+      <WrapperContainer>
+        <MoviesHeader>
+          <HeaderTitle>{Title}</HeaderTitle>
+          <div>
+            <Link to={`/favorites`}>
+              {' '}
+              <PlayIcon />
+            </Link>
+            <HeartIcon onClick={heartClicked} />
+            <NavLink to='/'>
+              {' '}
+              <GoBackIcon />{' '}
+            </NavLink>
+          </div>
+        </MoviesHeader>
+        <ContentWrapper>
+          <PosterSideBar>
+            <Poster1 src={Poster} />
+          </PosterSideBar>
 
-            <MovieInfo>
-              <MovieInfoHeader>
-                <div>
-                  <Title1>{Title}</Title1>
-                  <Year1>{Year}</Year1>
-                  <Runtine1>{Runtime}</Runtine1>
-                  <Rated1>{Rated}</Rated1>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  <Alert
-                    show={showAlert}
-                    onClose={() => setShowAlert(false)}
-                    transition
-                    variant='danger'
-                    dismissible
-                  >
-                    This Movie has been added already...
-                  </Alert>
-                  <Ratings1>
-                    <span>Ratings: </span>
-                    {imdbRating}
-                  </Ratings1>
-                  <Genre1>
-                    <span>Genre: </span>
-                    {Genre}
-                  </Genre1>
-                </div>
-              </MovieInfoHeader>
-              <Line />
+          <MovieInfo>
+            <MovieInfoHeader>
+              <div>
+                <Title1>{Title}</Title1>
+                <Year1>{Year}</Year1>
+                <Runtine1>{Runtime}</Runtine1>
+                <Rated1>{Rated}</Rated1>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <Alert
+                  show={showAlert}
+                  onClose={() => setShowAlert(false)}
+                  transition
+                  variant='danger'
+                  dismissible
+                >
+                  This Movie has been added already...
+                </Alert>
+                <Ratings1>
+                  <span>Ratings: </span>
+                  {imdbRating}
+                </Ratings1>
+                <Genre1>
+                  <span>Genre: </span>
+                  {Genre}
+                </Genre1>
+              </div>
+            </MovieInfoHeader>
+            <Line />
 
-              <MainInfo>
-                <DirectedBy>
-                  <span>DIRECTED BY</span>
-                  {Director}
-                </DirectedBy>
-                <WrittenBy>
-                  <span>WRITTEN BY</span>
-                  {Writer}
-                </WrittenBy>
-                <Language1>
-                  <span>AUDIO</span>
-                  {Language}
-                </Language1>
-                <Country1>
-                  <span>Country</span>
-                  {Country}
-                </Country1>
-                <Awards1>
-                  <span>Awards</span>
-                  {Awards}
-                </Awards1>
-                <Description>{Plot}</Description>
-              </MainInfo>
-              <NavLink to='/'>
-                {' '}
-                <Button>Back</Button>
-              </NavLink>
-            </MovieInfo>
-          </ContentWrapper>
-        </WrapperContainer>
-      </MovieWrapper>
-    </>
+            <MainInfo>
+              <DirectedBy>
+                <span>DIRECTED BY</span>
+                {Director}
+              </DirectedBy>
+              <WrittenBy>
+                <span>WRITTEN BY</span>
+                {Writer}
+              </WrittenBy>
+              <Language1>
+                <span>AUDIO</span>
+                {Language}
+              </Language1>
+              <Country1>
+                <span>Country</span>
+                {Country}
+              </Country1>
+              <Awards1>
+                <span>Awards</span>
+                {Awards}
+              </Awards1>
+              <Description>{Plot}</Description>
+            </MainInfo>
+            <NavLink to='/'>
+              {' '}
+              <Button>Back</Button>
+            </NavLink>
+          </MovieInfo>
+        </ContentWrapper>
+      </WrapperContainer>
+    </MovieWrapper>
   )
 }
 

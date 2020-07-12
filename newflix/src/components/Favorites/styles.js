@@ -9,13 +9,13 @@ import { SolidHeart } from '../../styles/icons'
 import { ArrowGoBack } from '../../styles/icons'
 
 export const MovieWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.55)),
-    url(${plexBG}) no-repeat;
+    url(${plexBG}) no-repeat center center fixed;
   background-size: cover;
-
+  background-repeat: repeat;
   position: relative;
+
+  min-height: 100vh;
 `
 
 export const WrapperContainer = styled(Container)``
@@ -25,9 +25,7 @@ export const MoviesHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  position: sticky;
 
-  top: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: 10px -10px 10px 1px rgba(0, 0, 0, 0.4);
   z-index: 3;
@@ -70,12 +68,15 @@ export const ContentWrapper = styled.div`
   max-width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-gap: 2rem;
 
   cursor: pointer;
 
   margin: 2rem auto;
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Poster1 = styled.img`
@@ -83,6 +84,10 @@ export const Poster1 = styled.img`
   height: 300px;
   margin: 0 auto;
   box-shadow: 10px -10px 10px 2px rgba(0, 0, 0, 0.4);
+  @media (max-width: 500px) {
+    width: 90%;
+    height: auto;
+  }
 `
 
 export const MovieInfo = styled.div`

@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+   
 }
 :root {
     --primary: #e42414;
@@ -19,9 +19,11 @@ const GlobalStyle = createGlobalStyle`
 
 html, body, :root {
     font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-   
+    height: 100%;
 }
  
+
+
 `
 
 export default GlobalStyle

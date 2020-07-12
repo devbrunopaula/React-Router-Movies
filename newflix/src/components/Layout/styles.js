@@ -3,11 +3,12 @@ import moviesBG from '../../assets/movieBG.jpg'
 import { ArrowIosForwardOutline } from '../../styles/icons'
 
 export const ExtWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.55)),
-    url(${moviesBG});
+    url(${moviesBG}) repeat;
   box-shadow: 4px 14px 19px -8px rgba(0, 0, 0, 0.79);
+  min-height: 100vh;
 `
 export const Header = styled.div`
   display: flex;
@@ -56,6 +57,10 @@ export const HeroContainer = styled.div`
     font-size: 1rem;
     padding: 0.5rem;
   }
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const EmailInput = styled.input`
@@ -71,6 +76,10 @@ export const EmailInput = styled.input`
   &::placeholder {
     color: gray;
     font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 3rem;
   }
 `
 
